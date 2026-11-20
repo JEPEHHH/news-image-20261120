@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Friday 20 November 2026 — The World in One Day</title>
+<style>
+  @page { size: 1024px 1024px; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --paper:#f4f0e7; --ink:#12141a; --red:#b3261e; --cool:#2f5d8a; --rule:#c9c1ae; --soft:#5d5a52;
+  }
+  html,body { width:1024px; height:1024px; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DejaVu Sans","Helvetica Neue",Arial,sans-serif;
+    padding:12px 20px 8px; display:flex; flex-direction:column; gap:5px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ---------- masthead ---------- */
+  header { border-bottom:3px solid var(--ink); padding-bottom:5px; }
+  .kick { display:flex; justify-content:space-between; align-items:baseline;
+           font-size:9.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--soft); }
+  .kick b { color:var(--red); }
+  h1 { font-family:"DejaVu Serif",Georgia,serif; font-size:45px; line-height:.95; letter-spacing:-.024em; margin-top:1px; }
+  .strip { display:flex; gap:10px; align-items:center; margin-top:4px; font-size:10.5px;
+            letter-spacing:.13em; text-transform:uppercase; }
+  .strip span { color:var(--soft); }
+  .strip em { font-style:normal; color:var(--red); font-weight:700; }
+  .strip .sep { color:var(--rule); }
+
+  /* ---------- numbers ---------- */
+  .band { display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid var(--rule);
+           border-bottom:2px solid var(--ink); }
+  .num { padding:3px 8px 4px; border-right:1px solid var(--rule); }
+  .num:last-child { border-right:none; }
+  .num .big { font-family:"DejaVu Serif",Georgia,serif; font-size:23px; line-height:1; letter-spacing:-.02em; }
+  .num:nth-child(3) .big, .num:nth-child(2) .big { color:var(--red); }
+  .num .cap { font-size:10px; color:var(--soft); margin-top:2px; line-height:1.15; }
+
+  /* ---------- story grid ---------- */
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+  .box { border:1px solid var(--rule); border-top:2px solid var(--ink); background:#f8f5ee;
+          padding:2px 6px 2px; display:flex; flex-direction:column; }
+  .tag { font-size:9px; letter-spacing:.12em; font-weight:700; color:var(--cool); }
+  .box h3 { font-family:"DejaVu Serif",Georgia,serif; font-size:13px; line-height:1.05; margin:1px 0 2px; }
+  .box p { font-size:11px; line-height:1.14; color:#26282e; flex:1; }
+  .src { display:flex; align-items:center; gap:4px; margin-top:2px; padding-top:2px;
+          border-top:1px dotted var(--rule); font-size:9px; color:var(--soft); }
+  .ic { width:13px; height:13px; color:var(--red); flex:none; }
+
+  /* ---------- map + timeline ---------- */
+  .mid { display:grid; grid-template-columns:452px 1fr; gap:8px; }
+  .panel { border:1px solid var(--rule); padding:4px 6px 5px; background:#f8f5ee; }
+  .ph { display:flex; justify-content:space-between; align-items:baseline;
+         font-size:9px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; margin-bottom:3px; }
+  .ph i { font-style:normal; color:var(--soft); letter-spacing:.06em; font-weight:400; }
+  .world { width:100%; height:auto; display:block; }
+  .dotn { font-size:17px; font-weight:700; fill:#fff; font-family:"DejaVu Sans",sans-serif; }
+  ol.time { list-style:none; display:flex; flex-direction:column; gap:3px; }
+  ol.time li { display:grid; grid-template-columns:38px 1fr; gap:6px; align-items:baseline;
+                border-bottom:1px dotted var(--rule); padding-bottom:2px; }
+  ol.time li:last-child { border-bottom:none; }
+  ol.time .t { font-size:10px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--red); }
+  ol.time .d { font-size:10px; line-height:1.2; }
+
+  /* ---------- also on friday ---------- */
+  .also { border-top:2px solid var(--ink); padding-top:4px; }
+  .ah { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px; }
+  .ah h2 { font-family:"DejaVu Serif",Georgia,serif; font-size:14px; letter-spacing:.01em; }
+  .ah span { font-size:9.5px; color:var(--soft); letter-spacing:.1em; text-transform:uppercase; }
+  ol.briefs { list-style:none; column-count:3; column-gap:14px; column-rule:1px solid var(--rule); }
+  ol.briefs li { font-size:10.4px; line-height:1.12; margin-bottom:0.6px; break-inside:avoid; white-space:nowrap; }
+  ol.briefs b { color:var(--red); font-size:9px; }
+  ol.briefs .bp { font-weight:700; }
+  ol.briefs i { color:var(--soft); font-style:normal; font-size:9px; }
+
+  /* ---------- date check + footer ---------- */
+  .dc { display:grid; grid-template-columns:1.15fr 1fr; gap:10px; border:1.5px solid var(--ink);
+         background:#efeade; padding:4px 8px 5px; }
+  .dc h2 { font-family:"DejaVu Serif",Georgia,serif; font-size:12.5px; }
+  .dc h2 em { font-style:normal; color:var(--red); }
+  .dc .sub { font-size:9px; color:var(--soft); margin:1px 0 2px; }
+  ul.dcl { list-style:none; column-count:2; column-gap:14px; }
+  ul.dcl li { font-size:9.2px; line-height:1.1; margin-bottom:0.5px; break-inside:avoid; }
+  ul.dcl i { color:var(--red); font-style:normal; font-weight:700; }
+  ul.dcl li::before { content:"— "; color:var(--red); }
+  .meth { font-size:9.5px; line-height:1.24; color:#2a2c32; }
+  .srcs { font-size:7.8px; line-height:1.2; color:var(--soft); border-top:1px solid var(--rule); padding-top:3px; }
+  .srcs b { color:var(--ink); letter-spacing:.08em; text-transform:uppercase; font-size:7.5px; }
+  footer { display:flex; justify-content:space-between; align-items:baseline;
+            border-top:1px solid var(--rule); padding-top:2px; font-size:8px; color:var(--soft);
+            letter-spacing:.06em; text-transform:uppercase; }
+</style></head>
+<body>
+<header>
+  <div class="kick"><span>The World in One Day · a news poster</span><span><b>Friday</b> · one page</span></div>
+  <h1>Friday 20 November 2026</h1>
+  <div class="strip">
+    <em>THE WORLD IN ONE DAY</em><span class="sep">|</span>
+    <span>32 stories</span><span class="sep">·</span><span>6 regions</span><span class="sep">·</span>
+    <span>all from this one day</span>
+  </div>
+</header>
+
+<section class="band">
+<div class="num"><div class="big">300,000</div><div class="cap">evacuated in Odisha</div></div>
+<div class="num"><div class="big">423</div><div class="cap">rescue teams deployed</div></div>
+<div class="num"><div class="big">−4.5%</div><div class="cap">Nikkei, Friday morning</div></div>
+<div class="num"><div class="big">193</div><div class="cap">balls for Phillips' 118</div></div>
+<div class="num"><div class="big">9</div><div class="cap">pages left in the COP31 draft</div></div>
+<div class="num"><div class="big">1,000</div><div class="cap">Lufthansa jobs to go</div></div>
+</section>
+
+<section class="grid">
+<article class="box">
+  <div class="tag">ASIA · STORM</div>
+  <h3>Akvan makes landfall in Odisha</h3>
+  <p>The cyclone crossed near Gopalpur on Friday morning. More than 300,000 people were evacuated and 423 rescue teams deployed; winds hit 80 kmph, gusting 90.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M12 5c4 0 7 2.5 7 6M12 19c-4 0-7-2.5-7-6"/><path d="M4.5 8.5C6 5.6 8.7 4 12 4M19.5 15.5C18 18.4 15.3 20 12 20"/></svg><span>India Today · The Hindu</span></div>
+</article>
+<article class="box">
+  <div class="tag">ASIA · MARKETS</div>
+  <h3>AI fears drag Asia lower</h3>
+  <p>Tokyo's Nikkei fell 4.5% to 56,775 by mid-morning, the Kospi lost 4.5% and Hong Kong 2%. Anthropic's record debut did not stop the slide.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14h18"/><path d="M6 9l4 4 3-3 5 6"/><path d="M18 12v4h-4"/></svg><span>AP</span></div>
+</article>
+<article class="box">
+  <div class="tag">ASIA · DIPLOMACY</div>
+  <h3>Delhi opens the first SCO forum</h3>
+  <p>Modi opened the Shanghai Cooperation Organisation's first Civilisational Dialogue Forum, three days of talks in New Delhi. All members, Pakistan included, were invited.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3.2 3 12.8 0 16M12 4c-3 3.2-3 12.8 0 16"/></svg><span>PIB · Akashvani</span></div>
+</article>
+<article class="box">
+  <div class="tag">ASIA · POLITICS</div>
+  <h3>Bangladesh holds ex-MP of banned party</h3>
+  <p>Police detained SM Ataul Haque Dolon, a former Awami League MP, in Satkhira, reports said on Friday morning.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h9"/><path d="M7 16l6-6"/><path d="M11 4l6 6-2 2-6-6z"/><path d="M15 12l3 3-2 2-3-3z"/></svg><span>Dhaka Observer</span></div>
+</article>
+<article class="box">
+  <div class="tag">EUROPE · DIPLOMACY</div>
+  <h3>Burnham tests the Brussels reset</h3>
+  <p>Britain's prime minister met EU leaders to sign post-Brexit deals on youth exchanges, food trade and carbon markets, with the reset argued to the wire.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l4-4 3 3 3-3 4 4-4 5-3-2-3 2z"/><path d="M7 8l-2-2M17 8l2-2"/></svg><span>POLITICO · The Irish News</span></div>
+</article>
+<article class="box">
+  <div class="tag">EUROPE · WAR</div>
+  <h3>Russia fires missiles across Ukraine</h3>
+  <p>Air-raid alerts ran into Friday morning as Moscow launched a mass missile attack, reports said, using Tu-160 bombers. Kyiv had been hit in daylight on Thursday.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4c3 1 5 3 6 6l-4 4-6-6z"/><path d="M10 14l-3 3-1 4 4-1 3-3"/><path d="M4 20l3-3"/></svg><span>Kyiv Independent</span></div>
+</article>
+<article class="box">
+  <div class="tag">EUROPE · LABOUR</div>
+  <h3>Lufthansa cuts 1,000 jobs as metalworkers strike</h3>
+  <p>German media reported the 1,000 cuts on Friday, the morning IG Metall began 24-hour warning strikes.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V10l5 3V10l5 3V9l5 3v8z"/><path d="M7 20v-3h3v3"/></svg><span>tagesschau</span></div>
+</article>
+<article class="box">
+  <div class="tag">AMERICAS · FLOOD</div>
+  <h3>Florida's record flood keeps climbing</h3>
+  <p>The St Johns River held above its all-time high at Cocoa and was forecast to rise again as more rain hit Brevard. Officials warn flooding could last into 2027.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg><span>AccuWeather · Florida Today</span></div>
+</article>
+<article class="box">
+  <div class="tag">AFRICA · POLITICS</div>
+  <h3>Kenyan opposition walks out on IEBC</h3>
+  <p>Opposition leaders quit talks over the electoral commission on Friday, listing five "non-negotiable" demands before they return.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v9H4z"/><path d="M8 11V5h8v6"/><path d="M10 8h4"/></svg><span>Daily Nation</span></div>
+</article>
+<article class="box">
+  <div class="tag">OCEANIA · CRICKET</div>
+  <h3>Phillips century grinds India down</h3>
+  <p>Phillips made 118 off 193 balls and Nicholls carried his bat for 175 as New Zealand reached 368 in Wellington — the first man with Test, ODI and T20I hundreds against India in a year.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l9-11 3 3-9 11z"/><circle cx="18.5" cy="5.5" r="2.2"/></svg><span>The Hindu · Hindustan Times</span></div>
+</article>
+<article class="box">
+  <div class="tag">MIDDLE EAST · HORMUZ</div>
+  <h3>Three versions of one Hormuz attack</h3>
+  <p>First reported Friday: Iran's army, navy and Guards gave three accounts of mines that disabled tankers in the eastern strait. No hull or owner is confirmed; traffic is about two transits a day.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2 4H5z"/><path d="M7 15V9h6l3 6"/><path d="M17 8h3"/></svg><span>Iran File</span></div>
+</article>
+<article class="box">
+  <div class="tag">GLOBAL · CLIMATE</div>
+  <h3>COP31 runs to its last day in Antalya</h3>
+  <p>The cover draft shrank from 18 pages to 9, the fossil-fuel line went and a 35% electrification goal stayed, as 198 countries negotiated to the deadline with nothing binding.</p>
+  <div class="src"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 9-5 14-12 14H5c0-8 5-12 12-12h3z"/><path d="M5 20c3-6 6-8 10-10"/></svg><span>la Repubblica · UN News</span></div>
+</article>
+</section>
+
+<section class="mid">
+  <div class="panel">
+    <div class="ph"><span>Where the day happened</span><i>numbers match the boxes</i></div>
+    <svg class="world" viewBox="0 0 714 244"><rect x="0" y="0" width="714" height="244" fill="#eae4d6"/><g stroke="#dcd5c3" stroke-width="1"><line x1="0" y1="28.0" x2="714" y2="28.0"/><line x1="0" y1="68.0" x2="714" y2="68.0"/><line x1="0" y1="108.0" x2="714" y2="108.0"/><line x1="0" y1="148.0" x2="714" y2="148.0"/><line x1="0" y1="188.0" x2="714" y2="188.0"/><line x1="0" y1="228.0" x2="714" y2="228.0"/><line x1="104.0" y1="0" x2="104.0" y2="244"/><line x1="224.0" y1="0" x2="224.0" y2="244"/><line x1="344.0" y1="0" x2="344.0" y2="244"/><line x1="464.0" y1="0" x2="464.0" y2="244"/><line x1="584.0" y1="0" x2="584.0" y2="244"/><line x1="704.0" y1="0" x2="704.0" y2="244"/></g><g fill="#c6bca5" stroke="#a99e86" stroke-width="1.3"><path d="M8.0,18.0 L44.0,8.0 L94.0,8.0 L144.0,2.0 L184.0,8.0 L220.0,28.0 L234.0,48.0 L212.0,58.0 L204.0,64.0 L194.0,78.0 L182.0,98.0 L150.0,96.0 L134.0,108.0 L114.0,88.0 L94.0,68.0 L84.0,38.0 L40.0,28.0 Z"/><path d="M150.0,116.0 L168.0,118.0 L178.0,130.0 L190.0,132.0 L178.0,118.0 L160.0,112.0 Z"/><path d="M190.0,132.0 L224.0,124.0 L244.0,148.0 L274.0,158.0 L268.0,178.0 L248.0,198.0 L228.0,224.0 L220.0,248.0 L204.0,258.0 L194.0,238.0 L202.0,188.0 L182.0,158.0 Z"/><path d="M254.0,28.0 L304.0,8.0 L294.0,-16.0 L224.0,-16.0 L228.0,8.0 Z"/><path d="M324.0,76.0 L326.0,60.0 L340.0,50.0 L348.0,46.0 L354.0,32.0 L364.0,32.0 L368.0,38.0 L384.0,38.0 L400.0,28.0 L404.0,58.0 L388.0,68.0 L374.0,72.0 L368.0,58.0 L354.0,62.0 L342.0,72.0 Z"/><path d="M310.0,118.0 L312.0,104.0 L332.0,76.0 L364.0,74.0 L408.0,86.0 L430.0,124.0 L446.0,126.0 L426.0,152.0 L424.0,178.0 L414.0,198.0 L384.0,218.0 L374.0,204.0 L368.0,164.0 L360.0,140.0 L328.0,138.0 Z"/><path d="M400.0,32.0 L404.0,58.0 L434.0,64.0 L444.0,88.0 L458.0,98.0 L474.0,98.0 L484.0,108.0 L488.0,132.0 L504.0,136.0 L520.0,104.0 L534.0,118.0 L544.0,122.0 L554.0,128.0 L560.0,108.0 L584.0,98.0 L588.0,68.0 L600.0,64.0 L608.0,52.0 L624.0,48.0 L634.0,24.0 L664.0,24.0 L684.0,16.0 L624.0,12.0 L564.0,12.0 L504.0,12.0 L464.0,12.0 L424.0,16.0 Z"/><path d="M570.0,192.0 L602.0,172.0 L628.0,170.0 L636.0,186.0 L650.0,204.0 L644.0,224.0 L624.0,224.0 L602.0,212.0 L574.0,216.0 Z"/><path d="M676.0,240.0 L692.0,230.0 L700.0,224.0 L696.0,230.0 L688.0,236.0 Z"/><path d="M604.0,86.0 L616.0,78.0 L626.0,68.0 L634.0,60.0 L628.0,72.0 L614.0,82.0 Z"/><path d="M332.0,48.0 L340.0,42.0 L338.0,32.0 L332.0,34.0 Z"/><path d="M534.0,138.0 L554.0,160.0 L550.0,152.0 L536.0,142.0 Z"/><path d="M562.0,144.0 L580.0,140.0 L578.0,154.0 L564.0,154.0 Z"/><path d="M606.0,150.0 L636.0,160.0 L644.0,166.0 L620.0,166.0 Z"/><path d="M584.0,112.0 L588.0,120.0 L596.0,128.0 L592.0,132.0 L584.0,124.0 Z"/><path d="M434.0,172.0 L444.0,178.0 L438.0,198.0 L430.0,192.0 Z"/><path d="M174.0,104.0 L190.0,108.0 L196.0,108.0 L184.0,102.0 Z"/></g><g stroke="#b3261e" stroke-width="1.2" opacity="0.7"><line x1="513.8" y1="109.4" x2="513.8" y2="131.4"/><line x1="498.4" y1="90.8" x2="468.4" y2="70.8"/><line x1="522.2" y1="102.6" x2="552.2" y2="108.6"/><line x1="352.8" y1="46.4" x2="336.8" y2="20.4"/><line x1="405.0" y1="47.0" x2="431.0" y2="35.0"/><line x1="361.4" y1="47.8" x2="367.4" y2="73.8"/><line x1="693.6" y1="230.6" x2="679.6" y2="226.6"/><line x1="457.0" y1="95.0" x2="467.0" y2="119.0"/></g><g><circle cx="513.8" cy="131.4" r="15" fill="#b3261e"/><text x="513.8" y="137.0" text-anchor="middle" class="dotn">1</text><circle cx="623.4" cy="76.6" r="15" fill="#b3261e"/><text x="623.4" y="82.2" text-anchor="middle" class="dotn">2</text><circle cx="468.4" cy="70.8" r="15" fill="#b3261e"/><text x="468.4" y="76.4" text-anchor="middle" class="dotn">3</text><circle cx="552.2" cy="108.6" r="15" fill="#b3261e"/><text x="552.2" y="114.2" text-anchor="middle" class="dotn">4</text><circle cx="336.8" cy="20.4" r="15" fill="#b3261e"/><text x="336.8" y="26.0" text-anchor="middle" class="dotn">5</text><circle cx="431.0" cy="35.0" r="15" fill="#b3261e"/><text x="431.0" y="40.6" text-anchor="middle" class="dotn">6</text><circle cx="367.4" cy="73.8" r="15" fill="#b3261e"/><text x="367.4" y="79.4" text-anchor="middle" class="dotn">7</text><circle cx="182.6" cy="91.4" r="15" fill="#b3261e"/><text x="182.6" y="97.0" text-anchor="middle" class="dotn">8</text><circle cx="417.6" cy="150.6" r="15" fill="#b3261e"/><text x="417.6" y="156.2" text-anchor="middle" class="dotn">9</text><circle cx="679.6" cy="226.6" r="15" fill="#b3261e"/><text x="679.6" y="232.2" text-anchor="middle" class="dotn">10</text><circle cx="467.0" cy="119.0" r="15" fill="#b3261e"/><text x="467.0" y="124.6" text-anchor="middle" class="dotn">11</text><circle cx="405.4" cy="74.2" r="15" fill="#b3261e"/><text x="405.4" y="79.8" text-anchor="middle" class="dotn">12</text></g></svg>
+  </div>
+  <div class="panel">
+    <div class="ph"><span>The day in UTC</span><i>five moments</i></div>
+    <ol class="time">
+<li><span class="t">00:00</span><span class="d">COP31's slimmed 9-page draft text circulates in Antalya</span></li>
+<li><span class="t">00:49</span><span class="d">M5.6 quake southeast of the Loyalty Islands, depth 10 km</span></li>
+<li><span class="t">02:30</span><span class="d">Tokyo's morning session closes with the Nikkei down 4.5%</span></li>
+<li><span class="t">06:30</span><span class="d">Cyclone Akvan begins landfall near Gopalpur</span></li>
+<li><span class="t">12:25</span><span class="d">Burnham, Costa and von der Leyen hold their Brussels press conference</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="also">
+  <div class="ah"><h2>Also on Friday</h2><span>20 more briefs · numbered on from 13</span></div>
+  <ol class="briefs">
+<li><b>13</b> Nepal speeds up local-poll preparations <i>Khabarhub</i></li>
+<li><b>14</b> Vietnam becomes APEC 2027 host <i>Viet Nam News</i></li>
+<li><b>15</b> Nigeria opens its 2026 licensing round <i>NUPRC</i></li>
+<li><b>16</b> Mexico starts takeover security review <i>DOF</i></li>
+<li><b>17</b> Canada–Brazil Billie Jean King Cup tie begins <i>Tennis Canada</i></li>
+<li><b>18</b> ATP Finals reach day five in Turin <i>ATP</i></li>
+<li><b>19</b> Las Vegas practice washed out by rain <i>The Athletic</i></li>
+<li><b>20</b> India cancels 10 trains for Akvan <i>Indian Express</i></li>
+<li><b>21</b> Bangladesh warns of very heavy Akvan rain <i>Sarabangla</i></li>
+<li><b>22</b> US sanctions an Aussie bikie 'world boss' <i>The Queenslander</i></li>
+<li><b>23</b> Kenyan milk output falls a third month <i>Daily Nation</i></li>
+<li><b>24</b> Rand weakest in a year as the JSE slides <i>Business Day</i></li>
+<li><b>25</b> IG Metall starts 24-hour warning strikes <i>tagesschau</i></li>
+<li><b>26</b> Congress alleges a ₹1,211 crore scam <i>Indian Express</i></li>
+<li><b>27</b> Court lets dropped voters restore names <i>Indian Express</i></li>
+<li><b>28</b> Nikkei ends more than 4% lower <i>Mainichi</i></li>
+<li><b>29</b> The DA weighs opposition over coalitions <i>Business Day</i></li>
+<li><b>30</b> China's envoy says Nepal remains a priority <i>Khabarhub</i></li>
+<li><b>31</b> M5.6 quake near the Loyalty Islands <i>Earthquake Track</i></li>
+<li><b>32</b> Labor accused over how-to-vote cards <i>The Queenslander</i></li>
+  </ol>
+</section>
+
+<section class="dc">
+  <div>
+    <h2>Date check <em>— what we left out</em></h2>
+    <div class="sub">All of these broke on Thursday 19 November or earlier — so none is on the page.</div>
+    <ul class="dcl">
+<li>Anthropic closed at $97.17, up 17%, worth $1.76tn</li>
+<li>Iran war-powers resolution defeated, 48–51</li>
+<li>Kyiv: Austrian and Dutch embassies damaged</li>
+<li>Merz: new Ukraine talks "soon" after Berlin</li>
+<li>California subpoenas Nvidia over China chips</li>
+<li>GTA VI launch: 19.05m copies, $1.84bn (est.)</li>
+<li>Tonga declares a 27-day drought emergency</li>
+<li>Houthi missile damages the PIF tower in Riyadh</li>
+<li>Xi, Putin and Trump sign a peace declaration</li>
+<li>ICJ: Myanmar committed genocide against Rohingya</li>
+<li>Somalia expels the UAE ambassador</li>
+<li>Mongolia's parliament accepts the resignation</li>
+    </ul>
+  </div>
+  <div class="meth">
+    <b>Method.</b> Every story here happened, or was first reported, on Friday 20 November 2026. Disputed claims are attributed, not stated as fact. Boxes 1–12 are the day's main lines; 13–32 are one-line briefs; the box opposite lists the big stories we left out because they broke earlier.
+    <br><b>On the numbers.</b> Figures are as the cited source reported them; estimates are labelled as estimates.
+  </div>
+</section>
+<div class="srcs"><b>Sources:</b> India Today · The Hindu · AP · PIB/Akashvani · Dhaka Observer · POLITICO · The Irish News · Kyiv Independent · tagesschau · AccuWeather · Florida Today · Daily Nation · Hindustan Times · Iran File · la Repubblica · UN News · Khabarhub · Viet Nam News · NUPRC · Tennis Canada · ATP · The Athletic · Indian Express · Mainichi · Business Day · The Queenslander · Earthquake Track · Sarabangla · DOF.</div>
+
+<footer>
+  <span>Compiled 20 November 2026 · all times UTC</span>
+  <span>32 stories checked · 12 kept out</span>
+</footer>
+</body></html>
